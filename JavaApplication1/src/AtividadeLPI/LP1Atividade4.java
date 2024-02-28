@@ -17,9 +17,13 @@ public class LP1Atividade4 {
         int i, k = 0;
 
         i = Integer.parseInt(JOptionPane.showInputDialog("Insira o valor"));
+        if(i < 0){
+            JOptionPane.showMessageDialog(null, "Inválido");
+        } else {
         while (i > 0) {
             i = i / 10;
             k++;
+         }
         }
         JOptionPane.showMessageDialog(null, "Contem " + k + " digitos.");
 
