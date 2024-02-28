@@ -27,13 +27,14 @@ if(media >= 7){
 JOptionPane.showMessageDialog(null, "A media é: " + media);
 } else {
   int rec, nf;
+  JOptionPane.showMessageDialog(null, "Sua media é: " + media + " Você esta de recuperação");
   rec =Integer.parseInt(JOptionPane.showInputDialog("Entre com a nota da Recuperação"));
   
   nf =(media + rec) / 2;
   if(nf >= 5){
      JOptionPane.showMessageDialog(null, "A sua nota final foi: " + nf + " Você Passou!");   
   } else {
-      JOptionPane.showMessageDialog(null, "Você foi Reprovado");
+      JOptionPane.showMessageDialog(null, "Você foi Reprovado." + " Sua Média: " + nf);
   }
 }
 System.exit(0);
