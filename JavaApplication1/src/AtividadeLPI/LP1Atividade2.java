@@ -21,9 +21,9 @@ public static void main(String args[]) {
     b = (book * 0.50F) + 2.50F;
     
     if(a <= b){
-        JOptionPane.showMessageDialog(null, "A opção A tem melhor desconto " + a);
+        JOptionPane.showMessageDialog(null, "A opção A tem melhor desconto " + a + " A opcão B não é vantajosa");
     } else {
-        JOptionPane.showMessageDialog(null, "A opção B tem melhor desconto " + b);
+        JOptionPane.showMessageDialog(null, "A opção B tem melhor desconto " + b + " A opcão A não é vantajosa");
     
     }
     System.exit(0);
