@@ -6,7 +6,7 @@ package Atividade1;
 
 /**
  *
- * @author joabe
+ * @author joabe & davi leal
  */
 import java.util.HashMap;
 import java.util.Map;
