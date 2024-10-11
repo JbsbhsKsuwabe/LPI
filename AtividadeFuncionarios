@@ -1,0 +1,60 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package atividadedavijoabe;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
+public class Funcionario {
+    private final String nome;
+    private final Date dataAdmissao;
+    private final float valorHora;
+    private final float horasTrabalhadas;
+    
+   
+    public Funcionario(String nome, String dataAdmissao, float valorHora, float horasTrabalhadas) throws ParseException {
+        this.nome = nome;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        this.dataAdmissao = sdf.parse(dataAdmissao);
+        this.valorHora = valorHora;
+        this.horasTrabalhadas = horasTrabalhadas;
+    }
+   public int calcularTempoEmpresa() {
+        Date hoje = new Date();
+        long diferencaEmMilissegundos = hoje.getTime() - dataAdmissao.getTime();
+        long diferencaEmDias = TimeUnit.MILLISECONDS.toDays(diferencaEmMilissegundos);
+        return (int) (diferencaEmDias / 365); 
+    }
+    public float calcularSalario() {
+        float salarioBase = valorHora * horasTrabalhadas;
+        int anosEmpresa = calcularTempoEmpresa();
+        
+        if (anosEmpresa >= 10) {
+            salarioBase *= 1.10;
+        } else if (anosEmpresa >= 5) {
+            salarioBase *= 1.05;
+        }
+        
+        return salarioBase;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Date getDataAdmissao() {
+        return dataAdmissao;
+    }
+
+    public float getValorHora() {
+        return valorHora;
+    }
+
+    public float getHorasTrabalhadas() {
+        return horasTrabalhadas;
+    }
+}
