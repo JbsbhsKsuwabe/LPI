@@ -40,3 +40,82 @@ public class Main{
     
     
 }
+
+
+
+
+
+
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package lista2;
+
+/**
+ *
+ * @author aluno
+ */
+public class Carro {
+    private String modelo;
+    private String cor;
+    private int ano;
+    private String marca;
+    private int velocidade;
+    
+    public Carro (String modelo, String cor, int ano, String marca, int velocidade){
+    this.modelo = modelo;
+    this.cor = cor;
+    this.ano = ano;
+    this.marca = marca;
+    this.velocidade = velocidade;
+    }
+    
+    public String getModelo(){
+        return modelo;
+    }
+    public void serModelo(String modelo){
+        this.modelo = modelo;
+    }
+    public String getCor(){
+        return cor;
+    }
+    public void setCor(String cor){
+        this.cor = cor;
+    }
+    public int getAno(){
+        return ano;
+    }
+    public void setAno(int ano){
+        this.ano = ano;
+    }
+    public String getMarca(){
+        return cor;
+    }
+    public void setMarca(String marca){
+        this.marca = marca;
+    }
+    public int getVelocidade(){
+        return velocidade;
+    }
+    public void setVelocidade(int velocidade){
+        this.velocidade = velocidade;
+    }
+    public void acelera(int comando){
+        if (comando == 1){
+            velocidade += 5;
+        } else if (comando == -1){
+            velocidade -= 5;
+         if (velocidade < 0){
+            velocidade = 0;
+         }
+       }
+    }
+ 
+    public void freia(){
+        velocidade = 0;
+    }
+    
+}
