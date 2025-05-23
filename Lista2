@@ -1,0 +1,42 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package lista2;
+import java.util.Scanner;
+/**
+ *
+ * @author aluno
+ */
+public class Main{
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Digite o modelo do carro: ");
+        String modelo = scanner.nextLine();
+        
+        System.out.print("Digite o cor do carro: ");
+        String cor = scanner.nextLine();
+        
+        System.out.print("Digite o marca do carro: ");
+        String marca = scanner.nextLine();
+        
+        System.out.print("Digite o ano do carro: ");
+        int ano = scanner.nextInt();
+        
+        Carro meuCarro = new Carro(modelo, cor, ano, marca);
+        
+        System.out.println("Velocidade atual: " + meuCarro.getVelocidade() + "km/h");
+        meuCarro.acelera(1);
+        System.out.println("Acelerou! Velocidade: " + meuCarro.getVelocidade() + "km/h");
+        meuCarro.acelera(-1);
+        System.out.println("Desacelerou! Velocidade: " + meuCarro.getVelocidade() + "km/h");
+        meuCarro.freia();
+    }
+    
+    
+}
