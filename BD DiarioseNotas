@@ -1,0 +1,58 @@
+CREATE DATABASE diario_pessoal;
+USE diario_pessoal;
+
+-- drop database diario_pessoal;
+
+-- Usuário (quem usa o diário, no caso você)
+CREATE TABLE usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+-- categoria criadas pelo usuário (ex: Estudos, Projetos, Saúde...)
+CREATE TABLE categoria (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
+-- Notas / registros associados a categorias
+CREATE TABLE registros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    data_registro DATE NOT NULL,
+    categoria_id INT,
+    FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+);
+
+-- Drop TABLE notas;
+
+CREATE TABLE notas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    conteudo TEXT,
+    data DATE NOT NULL,
+    usuario_id INT NOT NULL,
+    categoria_id INT NULL,
+    FOREIGN KEY (categoria_id) REFERENCES categoria(id) ON DELETE SET NULL
+);
+
+-- Atividades (tarefas pessoais com prazo, check-list, etc.)
+CREATE TABLE atividades (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    prazo DATE,
+    concluida BOOLEAN DEFAULT FALSE,
+    categoria_id INT,
+    FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+); 
+
+-- Apagar uma categoria e todos os registros/atividades ligados a ela DELETE FROM categoria WHERE id = ?;
+
+-- UPDATE categoria SET nome = 'Nome Novo da categoria', descricao = 'Nova descrição da categoria' WHERE id = ?;
+
